@@ -2,11 +2,100 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Bienvenu sur ProStages <3 <3 {% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+        <!-- LE BLOC POUR LES FEUILLES DE STYLES -->
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')}}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% endblock %}
     </head>
+    <!-- ......BODY .........-->
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="container-fluid">
+                
+        <!-- LE BLOC DU SLIDER -->
+        {% block slider %}
+        <div class="row">
+                <div class="col-md-12">
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner">          
+                    <img class="d-block w-100" alt="Carousel Bootstrap First" src="{{asset('/images/imageAccueil.jpg')}}" style="width:auto; height:300px; " />
+                        <div class="carousel-caption" style="vertical-align: text-top">
+                            <h1 style="color:black ;font-family:'Geneva'; font-size:120px">
+                                ProStages
+                            </h1>
+                        </div>
+                </div>
+                </div>
+                </div>
+        </div>
+        {% endblock %}
+
+        <!-- LE BLOC DU MENU -->
+        {% block menu %}
+        <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+                         
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="navbar-toggler-icon"></span>
+                        </button> <a class="navbar-brand" href="{{path('ProStages-Accueil',{id:1})}}">Accueil</a>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                     <a class="nav-link" href="{{path('ProStages-Stages',{id:3})}}">Liste des stages</a>
+                                </li>
+                                <li class="nav-item">
+                                     <a class="nav-link" href="{{path('ProStages-Entreprises',{id:1})}}">Liste des entreprises</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{path('ProStages-Formations',{id:2})}}">Liste des formations</a>
+                               </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+        </div>
+
+        {% endblock %}
+
+        <!-- LE BLOC DU CONTENU -->
+        {% block contenu %}
+        <div class="row">
+                <div class="col-md-12">
+                        <h1 style="color:black ; font-size:50px; text-align:center">
+                            {% block titrePage %}
+                            {% endblock %}
+                        </h1>
+                        <h3 style="color:black ; font-size:20px; text-align:center"></h1>
+                        {% block sousTitreStage %}
+                        {% endblock %}
+                        </h3>
+                </div>
+        </div>
+
+        {% block contenuPage %}
+        {% endblock %}
+
+        {% endblock %}
+        <!-- LE BLOC DU FOOTER -->
+        {% block footer %}
+        <div class="row">
+                <div class="col-md-12">
+                </div>
+        </div>
+        {% endblock %}
+
+        <!-- LE BLOC DU JAVASCRIPTS -->
+        {% block javascripts %}
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        {% endblock %}
+    </div>
     </body>
 </html>

@@ -1,6 +1,75 @@
-<html>
-<body>
-    <h1> Bienvenue sur la page d-accueil de ProStage 
-    </h1> 
-</body> 
-</html>
+{% extends 'base.html.twig' %}
+
+{% block titrePage %}
+Bienvenue sur la page d'accueil de ProStage
+{% endblock %}
+
+{% block contenuPage %}
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="card">
+                                <a <a href="{{path('ProStages-Entreprises',{id:1})}}">
+                                        <img class="card-img-top" alt="Bootstrap Thumbnail First" src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg" />
+                                    </a> 
+                                <div class="card-header">
+                                        <h5 class="card-title">
+                                                Stage1
+                                        </h5>
+                                </div>
+                                <div class="card-body">
+                                        <p class="card-text">
+                                                Description du stage resumer
+                                        </p>
+                                        <p>
+                                                <a class="btn btn-primary" href="#">Description</a>
+                                        </p>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                            <div class="card">
+                                    <a <a href="{{path('ProStages-Entreprises',{id:1})}}">
+                                            <img class="card-img-top" alt="Bootstrap Thumbnail First" src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg" />
+                                        </a> 
+                                  <div class="card-header">
+                                            <h5 class="card-title">
+                                                    Stage1
+                                            </h5>
+                                    </div>
+                                    <div class="card-body">
+                                            <p class="card-text">
+                                                    Description du stage resumer
+                                            </p>
+                                            <p>
+                                                    <a class="btn btn-primary" href="#">Description</a>
+                                            </p>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                                <div class="card">
+                                    <a <a href="{{path('ProStages-Entreprises',{id:1})}}">
+                                        <img class="card-img-top" alt="Bootstrap Thumbnail First" src="https://www.layoutit.com/img/people-q-c-600-200-1.jpg" />
+                                    </a> 
+                                        <div class="card-header">
+                                                <h5 class="card-title">
+                                                        Stage1
+                                                </h5>
+                                        </div>
+                                        <div class="card-body">
+                                                <p class="card-text">
+                                                        Description du stage resumer
+                                                </p>
+                                                
+                                        </div>
+                                </div>
+                            </div>
+
+                </div>
+            </div>
+
+{% endblock %}
