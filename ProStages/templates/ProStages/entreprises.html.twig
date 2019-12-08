@@ -1,5 +1,68 @@
 {% extends 'base.html.twig' %}
 
 {% block titrePage %}
-Les stages en fonctions des entreprises 
+	Trouve un stage en fonction de l'entreprise choisie
+{% endblock %}
+
+
+{% block contenuPage %}
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item" style="text-align:center"> Nom de l'entreprise:
+                    </li>
+					<li class="list-group-item">Activitées :
+					</li>
+					<li class="list-group-item">Adresse :
+					</li>
+					<li class="list-group-item">Lien vers le site de l'entreprise :
+					</li>
+					<li class="list-group-item">
+                            <a href="{{path('ProStages-ressourceStages',{id:5})}}" >Tout les stages que propose cette entreprise </a> 
+					
+					</li>
+				</ul>
+
+
+			</div>
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item" style="text-align:center">Nom de l'entreprise :
+					</li>
+					<li class="list-group-item">Activitées :
+					</li>
+					<li class="list-group-item">Adresse :
+					</li>
+					<li class="list-group-item">Lien vers le site de l'entreprise :
+					</li>
+					<li class="list-group-item">
+                            <a href="{{path('ProStages-ressourceStages',{id:5})}}" >Tout les stages que propose cette entreprise </a> 
+					
+					</li>
+				</ul>
+
+
+			</div>
+
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item" style="text-align:center">Nom de l'entreprise :
+					</li>
+					<li class="list-group-item">Activitées :
+					</li>
+					<li class="list-group-item">Adresse :
+					</li>
+					<li class="list-group-item">Lien vers le site de l'entreprise :
+					</li>
+					<li class="list-group-item">
+                        <a href="{{path('ProStages-ressourceStages',{id:5})}}" >Tout les stages que propose cette entreprise </a> 
+					</li>
+				</ul>
+
+
+			</div>
+
+		</div>
+	</div>
 {% endblock %}

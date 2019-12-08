@@ -1,6 +1,52 @@
 {% extends 'base.html.twig' %}
 
 {% block titrePage %}
-Les stages disponibles
+	Les stages disponibles
 {% endblock %}
 
+
+{% block contenuPage %}
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item" style="text-align:center">Titre du stage :
+					</li>
+					<li class="list-group-item">
+						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Plus de détails :
+						</a>
+					</li>
+				</ul>
+
+
+			</div>
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item" style="text-align:center">Titre du stage :
+					</li>
+					<li class="list-group-item">
+						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Plus de détails :
+						</a>
+
+					</li>
+				</ul>
+
+
+			</div>
+
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item" style="text-align:center">Titre du stage :
+					</li>
+					<li class="list-group-item">
+						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Plus de détails :
+						</a>
+					</li>
+				</ul>
+
+
+			</div>
+
+		</div>
+	</div>
+{% endblock %}

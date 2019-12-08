@@ -1,5 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block titrePage %}
-Les stages en fonctions des formations 
+	Trouve un stage en fonction de la formation choisie
+{% endblock %}
+
+
+{% block contenuPage %}
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item" style="text-align:center">
+						Nom cout de la formation :
+					</li>
+					<li class="list-group-item">Nom Long de la formation :
+					</li>
+					<li class="list-group-item">
+						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Tout les stages disponible graçe à cette formation</a>
+					</li>
+				</ul>
+
+
+			</div>
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item" style="text-align:center">
+						Nom cout de la formation :
+					</li>
+					<li class="list-group-item">Nom Long de la formation :
+					</li>
+					<li class="list-group-item">
+						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Tout les stages disponible graçe à cette formation</a>
+					</li>
+				</ul>
+
+
+			</div>
+
+			<div class="col-md-4">
+				<ul class="list-group">
+					<li class="list-group-item" style="text-align:center">
+						Nom cout de la formation :
+					</li>
+					<li class="list-group-item">Nom Long de la formation :
+					</li>
+					<li class="list-group-item">
+						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Tout les stages disponible graçe à cette formation</a>
+					</li>
+				</ul>
+
+
+			</div>
+
+		</div>
+	</div>
 {% endblock %}

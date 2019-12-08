@@ -15,14 +15,6 @@ class ProStagesController extends AbstractController
     {
         return $this->render('ProStages/index.html.twig');
 
-        /*return new Response (
-        '<html>
-            <body>  
-                <h1>  Bienvenue sur la page d-accueil de ProStage <3 <3 <3
-                </h1>  
-            </body>  
-        </html>');
-        */
     }
 
     /**
@@ -31,13 +23,6 @@ class ProStagesController extends AbstractController
     public function entreprises($id)
     {
         return $this->render('ProStages/entreprises.html.twig', ['idEntreprises'=>$id]);
-        /*return new Response (
-        '<html>
-            <body>  
-                <h1>  Cette page affichera la liste des entreprises proposant un stage 
-                </h1>  
-            </body>  
-        </html>');*/
     }
 
 
@@ -48,13 +33,6 @@ class ProStagesController extends AbstractController
     {
         return $this->render('ProStages/formations.html.twig', ['idFormations' => $id]);
 
-        /*return new Response (
-        '<html>
-            <body>  
-                <h1>  Cette page affichera la liste des formations de l-IUT
-                </h1>  
-            </body>  
-        </html>');*/
     }
 
     /**
@@ -64,13 +42,15 @@ class ProStagesController extends AbstractController
     {
         return $this->render('ProStages/stages.html.twig', ['idStages' => $id]);
 
-        /*return new Response (
-        '<html>
-            <body>  
-                <h1>  Cette page affichera le descriptif du stage ayant pour identifiant $id
-                </h1>  
-            </body>  
-        </html>');*/
+    }
+
+     /**
+     * @Route("/ressourceStages/{id}", name="ProStages-ressourceStages")
+     */
+    public function ressourceStages($id)
+    {
+        return $this->render('ProStages/ressourceStages.html.twig', ['idRessourceStages' => $id]);
+
     }
 
 }
