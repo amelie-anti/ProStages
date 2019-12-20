@@ -12,8 +12,6 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-
-
         //création d'un générateur de données faker
         $faker = \Faker\Factory::create('fr_FR');
 
@@ -66,19 +64,15 @@ class AppFixtures extends Fixture
 
         //Définir l'entreprise lier au stage
         $numEntreprise = $faker->numberBetween($min=0, $max=8);
-$Stages->setEntreprise($Entreprises);
-$Entreprises->addStage($Stages);
+        $Stages->setEntreprise($Entreprises);
+        $Entreprises->addStage($Stages);
 
-$manager->persist($Stages);
-$manager->persist($Entreprises);
-
+        $manager->persist($Stages);
+        $manager->persist($Entreprises);
         }
-       
-
-    
-    
-    }   
-
         $manager->flush();
+    }   
+        
     }
-}
+
+?>
