@@ -45,7 +45,7 @@ class AppFixtures extends Fixture
             }
         
         //Création des ressources assosier au Formation
-        $nbStagesAGenerer = $faker->numberBetween($min=1, $max=20) ;
+        $nbStagesAGenerer = 9 ;
 
         for ($NumStage = 1 ; $NumStage <= $nbStagesAGenerer ; $NumStage++){
         $Stages = new Stage();
