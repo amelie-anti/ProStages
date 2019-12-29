@@ -8,49 +8,27 @@
 {% block contenuPage %}
 	<div class="col-md-12">
 		<div class="row">
+
+{% for ressourcesCourant in ress %}
 			<div class="col-md-4">
 				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center">
-						Nom cout de la formation :
+					<li class="list-group-item" style="text-align:center"> <strong> Nom Court : </strong>{{ressourcesCourant.nomCourt}} 
 					</li>
-					<li class="list-group-item">Nom Long de la formation :
-					</li>
-					<li class="list-group-item">
-						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Tout les stages disponible graçe à cette formation</a>
-					</li>
-				</ul>
-
-
-			</div>
-			<div class="col-md-4">
-				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center">
-						Nom cout de la formation :
-					</li>
-					<li class="list-group-item">Nom Long de la formation :
+					<li class="list-group-item"><strong>Nom long : </strong>{{ressourcesCourant.nomLong}} 
 					</li>
 					<li class="list-group-item">
-						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Tout les stages disponible graçe à cette formation</a>
+
+							{% for formationCourant in ress %} 
+							<a href="{{path('ProStages-Stages',{id:formationCourant.id})}}">stage proposer</a>
+							<br> </br>
+							{% endfor %}
 					</li>
 				</ul>
-
-
 			</div>
 
-			<div class="col-md-4">
-				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center">
-						Nom cout de la formation :
-					</li>
-					<li class="list-group-item">Nom Long de la formation :
-					</li>
-					<li class="list-group-item">
-						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Tout les stages disponible graçe à cette formation</a>
-					</li>
-				</ul>
+{% endfor %}
 
-
-			</div>
+		
 
 		</div>
 	</div>

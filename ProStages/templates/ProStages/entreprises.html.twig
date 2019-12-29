@@ -8,60 +8,30 @@
 {% block contenuPage %}
 	<div class="col-md-12">
 		<div class="row">
+
+
+{% for ressourcesCourante in ressour %}
 			<div class="col-md-4">
 				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center"> Nom de l'entreprise:
+					<li class="list-group-item" style="text-align:center"><strong>Nom : </strong>{{ressourcesCourante.nom}}
                     </li>
-					<li class="list-group-item">Activitées :
+					<li class="list-group-item"><strong>Activiter : </strong>{{ressourcesCourante.activiter}}
 					</li>
-					<li class="list-group-item">Adresse :
+					<li class="list-group-item"><strong>Adresse : </strong>{{ressourcesCourante.adresse}}
 					</li>
-					<li class="list-group-item">Lien vers le site de l'entreprise :
+					<li class="list-group-item"><strong>Lien vers site web : </strong>{{ressourcesCourante.lienSiteWeb}}
 					</li>
 					<li class="list-group-item">
-                            <a href="{{path('ProStages-ressourceStages',{id:5})}}" >Tout les stages que propose cette entreprise </a> 
+                            {% for formationCourant in ressour %} 
+							<a href="{{path('ProStages-Stages',{id:formationCourant.id})}}"> stage proposer</a>
+							<br> </br>
+							{% endfor %} 
 					
 					</li>
 				</ul>
-
-
 			</div>
-			<div class="col-md-4">
-				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center">Nom de l'entreprise :
-					</li>
-					<li class="list-group-item">Activitées :
-					</li>
-					<li class="list-group-item">Adresse :
-					</li>
-					<li class="list-group-item">Lien vers le site de l'entreprise :
-					</li>
-					<li class="list-group-item">
-                            <a href="{{path('ProStages-ressourceStages',{id:5})}}" >Tout les stages que propose cette entreprise </a> 
-					
-					</li>
-				</ul>
+{% endfor %}
 
-
-			</div>
-
-			<div class="col-md-4">
-				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center">Nom de l'entreprise :
-					</li>
-					<li class="list-group-item">Activitées :
-					</li>
-					<li class="list-group-item">Adresse :
-					</li>
-					<li class="list-group-item">Lien vers le site de l'entreprise :
-					</li>
-					<li class="list-group-item">
-                        <a href="{{path('ProStages-ressourceStages',{id:5})}}" >Tout les stages que propose cette entreprise </a> 
-					</li>
-				</ul>
-
-
-			</div>
 
 		</div>
 	</div>

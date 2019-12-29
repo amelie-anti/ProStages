@@ -8,45 +8,20 @@
 {% block contenuPage %}
 	<div class="col-md-12">
 		<div class="row">
+
+{% for ressourcesCourante in ressources %}
 			<div class="col-md-4">
 				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center">Titre du stage :
+					<li class="list-group-item" style="text-align:center">{{ressourcesCourante.nom}}
 					</li>
 					<li class="list-group-item">
-						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Plus de détails :
+						<a href="{{path('ProStages-ressourceStages',{id:ressourcesCourante.id})}}">Plus de détails :
 						</a>
 					</li>
 				</ul>
-
-
 			</div>
-			<div class="col-md-4">
-				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center">Titre du stage :
-					</li>
-					<li class="list-group-item">
-						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Plus de détails :
-						</a>
-
-					</li>
-				</ul>
-
-
-			</div>
-
-			<div class="col-md-4">
-				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center">Titre du stage :
-					</li>
-					<li class="list-group-item">
-						<a href="{{path('ProStages-ressourceStages',{id:5})}}">Plus de détails :
-						</a>
-					</li>
-				</ul>
-
-
-			</div>
-
+{% endfor %}			
+			
 		</div>
 	</div>
 {% endblock %}

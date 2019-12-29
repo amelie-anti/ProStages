@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response; 
 
+use App\Entity\Stage;
+use App\Entity\Entreprise;
+use App\Entity\Formation;
+
 class ProStagesController extends AbstractController
 {
     /**
@@ -22,7 +26,14 @@ class ProStagesController extends AbstractController
      */
     public function entreprises($id)
     {
-        return $this->render('ProStages/entreprises.html.twig', ['idEntreprises'=>$id]);
+        //recuperer le repository de l'entité stage 
+    $repositoryRessources = $this->getDoctrine()->getRepository(Entreprise::class);
+
+    //récuperer les stages enregister en bd 
+    $ressour = $repositoryRessources->findAll($id);
+
+//envoyer les stages récuperer à la vue charger de las afficher 
+        return $this->render('ProStages/entreprises.html.twig', ['ressour'=>$ressour]);
     }
 
 
@@ -31,7 +42,14 @@ class ProStagesController extends AbstractController
      */
     public function formations($id)
     {
-        return $this->render('ProStages/formations.html.twig', ['idFormations' => $id]);
+        //recuperer le repository de l'entité stage 
+    $repositoryRessources = $this->getDoctrine()->getRepository(Formation::class);
+
+    //récuperer les stages enregister en bd 
+    $ress= $repositoryRessources->findAll($id);
+
+    //envoyer les stages récuperer à la vue charger de las afficher 
+        return $this->render('ProStages/formations.html.twig', ['ress'=>$ress]);
 
     }
 
@@ -40,7 +58,14 @@ class ProStagesController extends AbstractController
      */
     public function stages($id)
     {
-        return $this->render('ProStages/stages.html.twig', ['idStages' => $id]);
+        //recuperer le repository de l'entité stage 
+    $repositoryRessources = $this->getDoctrine()->getRepository(Stage::class);
+
+    //récuperer les stages enregister en bd 
+    $ressources = $repositoryRessources->findAll();
+
+    //envoyer les stages récuperer à la vue charger de las afficher 
+        return $this->render('ProStages/stages.html.twig',['ressources'=>$ressources]);
 
     }
 
@@ -49,8 +74,14 @@ class ProStagesController extends AbstractController
      */
     public function ressourceStages($id)
     {
-        return $this->render('ProStages/ressourceStages.html.twig', ['idRessourceStages' => $id]);
+        //recuperer le repository de l'entité stage 
+    $repositoryRessources = $this->getDoctrine()->getRepository(Stage::class);
 
+    //récuperer les stages enregister en bd 
+    $ressource = $repositoryRessources->find($id);
+
+    //envoyer les stages récuperer à la vue charger de las afficher 
+    return $this->render('ProStages/ressourceStages.html.twig',['ressource'=>$ressource]);
     }
 
 }
