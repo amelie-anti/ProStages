@@ -62,7 +62,7 @@ class ProStagesController extends AbstractController
     $repositoryRessources = $this->getDoctrine()->getRepository(Stage::class);
 
     //récuperer les stages enregister en bd 
-    $ressources = $repositoryRessources->findAll();
+    $ressources = $repositoryRessources->findAll($id);
 
     //envoyer les stages récuperer à la vue charger de las afficher 
         return $this->render('ProStages/stages.html.twig',['ressources'=>$ressources]);
@@ -83,5 +83,26 @@ class ProStagesController extends AbstractController
     //envoyer les stages récuperer à la vue charger de las afficher 
     return $this->render('ProStages/ressourceStages.html.twig',['ressource'=>$ressource]);
     }
+
+
+    /**
+     * @Route("/stagesParEntreprise/{id}", name="ProStages-stagesParEntreprise")
+     */
+    public function stagesParEntreprise($id)
+    {
+        //recuperer le repository de l'entité stage 
+    $repositoryRessources = $this->getDoctrine()->getRepository(Stage::class);
+
+    //récuperer les stages enregister en bd 
+    $ressources = $repositoryRessources->findStageByEntrepriseDQL($id);
+
+    //envoyer les stages récuperer à la vue charger de las afficher 
+        return $this->render('ProStages/entreprises.html.twig',['re'=>$re]);
+
+    }
+
+
+
+
 
 }

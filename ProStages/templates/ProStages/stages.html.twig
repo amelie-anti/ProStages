@@ -12,8 +12,9 @@
 {% for ressourcesCourante in ressources %}
 			<div class="col-md-4">
 				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center">{{ressourcesCourante.nom}}
+					<li class="list-group-item" style="text-align:center">{{ressourcesCourante.nom}} - {{ressourcesCourante.entreprise.nom}}
 					</li>
+					
 					<li class="list-group-item">
 						<a href="{{path('ProStages-ressourceStages',{id:ressourcesCourante.id})}}">Plus de détails :
 						</a>

@@ -14,7 +14,7 @@
 			<div class="col-md-4">
 				<ul class="list-group">
 					<li class="list-group-item" style="text-align:center"><strong>Nom : </strong>{{ressourcesCourante.nom}}
-                    </li>
+					</li>
 					<li class="list-group-item"><strong>Activiter : </strong>{{ressourcesCourante.activiter}}
 					</li>
 					<li class="list-group-item"><strong>Adresse : </strong>{{ressourcesCourante.adresse}}
@@ -22,8 +22,8 @@
 					<li class="list-group-item"><strong>Lien vers site web : </strong>{{ressourcesCourante.lienSiteWeb}}
 					</li>
 					<li class="list-group-item">
-                            {% for formationCourant in ressour %} 
-							<a href="{{path('ProStages-Stages',{id:formationCourant.id})}}"> stage proposer</a>
+                            {% for EntrepriseCourant in ressour %} 
+							<a href="{{path('ProStages-Stages',{id:EntrepriseCourant.id})}}"> stage proposer</a>
 							<br> </br>
 							{% endfor %} 
 					
