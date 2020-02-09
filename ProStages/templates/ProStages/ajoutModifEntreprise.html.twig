@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block titrePage %}
+
+{% if action == 'ajouter' %}
+Ajout d'une entreprise
+
+{% else %}
+Modification d'une entreprise
+{% endif %}
+{% endblock %}
+
+{% block contenuPage %}
+Saisissez les caractéristiques de l'entreprise 
+
+{{ form_start(vueFormulaire)}}
+{{ form_row(vueFormulaire.nom,{'attr':{'placeholder':'Nom de entreprise'} } )}}
+{{ form_row(vueFormulaire.activiter)}}
+{{ form_row(vueFormulaire.adresse)}}
+{{ form_row(vueFormulaire.lienSiteWeb)}}
+
+<button type="submit" class="btn btn-dark" > Enregistrer </button>
+
+{{ form_end(vueFormulaire)}}
+
+
+{% endblock %}
