@@ -1,23 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block contenu %}
-
 	
-<ul class="list-group">
-        <li class="list-group-item" style="text-align:center"><strong> Identifiant du stage : </strong>{{ressource.id}}</li>
-        <li class="list-group-item"><strong>Titre : </strong>{{ressource.titre}} </li>
-        <li class="list-group-item"><strong>Nom : </strong>{{ressource.nom}} </li>
-        <li class="list-group-item"><strong>Entreprise : </strong>{{ressource.entreprise.nom}} </li>
-        <li class="list-group-item"><strong>Activité : </strong>{{ressource.activiter}} </li>
-        <li class="list-group-item"><strong>Adresse : </strong>{{ressource.adresse}} </li>
-        <li class="list-group-item"><strong>Description : </strong>{{ressource.description}} </li>
-        <li class="list-group-item"><strong>Email : </strong>{{ressource.email}} </li>
-        <li class="list-group-item"><strong>Formations : </strong> 
-        {% for formationCourant in ressource.formations %} 
-        {{ formationCourant.nomCourt}} , 
-        {% endfor %}
-        </li>
-</ul> 
+        <ul class="list-group">
+                <li class="list-group-item" style="text-align:center"><strong> Identifiant du stage : </strong>{{ressource.id}}</li>
+                <li class="list-group-item"><strong>Titre : </strong>{{ressource.titre}} </li>
+                <li class="list-group-item"><strong>Nom : </strong>{{ressource.nom}} </li>
+                <li class="list-group-item"><strong>Entreprise : </strong>{{ressource.entreprise.nom}} </li>
+                <li class="list-group-item"><strong>Activité : </strong>{{ressource.activiter}} </li>
+                <li class="list-group-item"><strong>Adresse : </strong>{{ressource.adresse}} </li>
+                <li class="list-group-item"><strong>Description : </strong>{{ressource.description}} </li>
+                <li class="list-group-item"><strong>Email : </strong>{{ressource.email}} </li>
+                <li class="list-group-item"><strong>Formations : </strong> 
 
+                {% for formationCourant in ressource.formations %} 
+                        {{ formationCourant.nomCourt}} , 
+                {% endfor %}
+                </li>
+        </ul> 
 
 {% endblock %}

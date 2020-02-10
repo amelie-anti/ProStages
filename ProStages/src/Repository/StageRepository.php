@@ -19,36 +19,40 @@ class StageRepository extends ServiceEntityRepository
         parent::__construct($registry, Stage::class);
     }
 
-     /**
-      * @return Stage[] Returns an array of Stage objects
-      */
+    /**
+    * @return Stage[] Returns an array of Stage objects
+    */
     
-    public function findStageByEntrepriseQB($id)
+    public function findStageByEntrepriseQB($nom)
     {
         return $this->createQueryBuilder('s')
-            ->join('s.entreprise','e')
-            ->andWhere('e.nom = :numNom')
-            ->setParameter('numNom', $id)
-            ->getQuery()
-            ->getResult()
+        ->join('s.entreprise','e')
+        ->join('s.formations','f')
+        ->addSelect('e')
+        ->addSelect('f')
+        ->andWhere('e.nom = :val')
+        ->setParameter('val', $nom)
+        ->orderBy('s.id', 'ASC')
+        ->getQuery()
+        ->getResult()
         ;
     }
     
-
-     /**
-      * @return Stage[] Returns an array of Stage objects
-      */
-    public function findStageByFormationDQL(){
-        $gestionaireEntite = $this -> getEntityManager();
-        $requete = $gestionaireEntite ->createQuery(
-
-            'select s,f 
-            // from App/Entity/Stage s
-            Join s.formation f '
-        );
-        return $requete ->execute();
+    /**
+    * @return Stage[] Returns an array of Stage objects
+    */
+    public function findStageByFormationDQL($nomCourt){
+        return $this->getEntityManager()->createQuery('
+        SELECT s, e, f
+        FROM App\Entity\Stage s
+        JOIN s.entreprise e
+        JOIN s.formations f
+        WHERE f.nomCourt = :val')
+        ->setParameter('val', $nomCourt)
+        ->execute()
+        ;
     }
-
+    
     /*
     public function findOneBySomeField($value): ?Stage
     {

@@ -16,17 +16,17 @@ class AppFixtures extends Fixture
         $faker = \Faker\Factory::create('fr_FR');
 
         //création des 3 formations : 
-            //DUT 
-         $FormationDUT = new Formation();
-         $FormationDUT->setNomCourt("DUT Informatique");
-         $FormationDUT->setNomLong("Diplôme Universitaire Technologique en Informatique");
-         $manager->persist($FormationDUT);
-            //LP
-         $FormationLP = new Formation();
-         $FormationLP->setNomCourt("LP Multimédia");
-         $FormationLP->setNomLong("Licence Professionnelle Multimédias");
-         $manager->persist($FormationLP);
-            //DU
+        //DUT 
+        $FormationDUT = new Formation();
+        $FormationDUT->setNomCourt("DUT Informatique");
+        $FormationDUT->setNomLong("Diplôme Universitaire Technologique en Informatique");
+        $manager->persist($FormationDUT);
+        //LP
+        $FormationLP = new Formation();
+        $FormationLP->setNomCourt("LP Multimédia");
+        $FormationLP->setNomLong("Licence Professionnelle Multimédias");
+        $manager->persist($FormationLP);
+        //DU
         $FormationDU = new Formation();
         $FormationDU->setNomCourt("DU TIC");
         $FormationDU->setNomLong("Diplôme Universitaire en Technologies de l'Information et de la communication");
@@ -42,37 +42,35 @@ class AppFixtures extends Fixture
             $Entreprises->setAdresse($faker->address);
             $Entreprises->setLienSiteWeb($faker->url);
             $manager->persist($Entreprises);
-        }
-        
+       
         //Création des ressources assosier au Formation
-        $nbStagesAGenerer = 9 ;
+        $nbStagesAGenerer = 3 ;
 
-        for ($NumStage = 1 ; $NumStage <= $nbStagesAGenerer ; $NumStage++){
-            $Stages = new Stage();
-            $Stages->setTitre("Stage");
-            $Stages->setNom($faker->realText($maxNbChars = 20, $indexSize = 2));
-            $Stages->setActiviter($faker->realText($maxNbChars = 200, $indexSize = 2));
-            $Stages->setAdresse($faker->address);
-            $Stages->setDescription($faker->realText($maxNbChars = 200, $indexSize = 2));
-            $Stages->setEmail($faker->email);
+            for ($NumStage = 1 ; $NumStage <= $nbStagesAGenerer ; $NumStage++){
+                $Stages = new Stage();
+                $Stages->setTitre("Stage");
+                $Stages->setNom($faker->realText($maxNbChars = 20, $indexSize = 2));
+                $Stages->setActiviter($faker->realText($maxNbChars = 200, $indexSize = 2));
+                $Stages->setAdresse($faker->address);
+                $Stages->setDescription($faker->realText($maxNbChars = 200, $indexSize = 2));
+                $Stages->setEmail($faker->email);
 
-            $Stages->addFormation($FormationDUT);
+                $Stages->addFormation($FormationDUT);
 
-            $Stages->addFormation($FormationLP);
+                $Stages->addFormation($FormationLP);
 
-            $Stages->addFormation($FormationDU);
+                $Stages->addFormation($FormationDU);
 
-            //Définir l'entreprise lier au stage
-            $numEntreprise = $faker->numberBetween($min=0, $max=8);
-            $Stages->setEntreprise($Entreprises);
-            $Entreprises->addStage($Stages);
+                //Définir l'entreprise lier au stage
+                $Stages->setEntreprise($Entreprises);
+                $Entreprises->addStage($Stages);
 
-            $manager->persist($Stages);
-            $manager->persist($Entreprises);
-        }
+                $manager->persist($Stages);
+                $manager->persist($Entreprises);
+            }
+        }   
         $manager->flush();
-    }   
-        
-    }
+    }        
+}
 
 ?>

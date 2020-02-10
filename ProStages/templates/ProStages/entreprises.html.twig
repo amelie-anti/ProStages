@@ -8,31 +8,28 @@
 {% block contenuPage %}
 	<div class="col-md-12">
 		<div class="row">
-
-
-{% for ressourcesCourante in ressour %}
-			<div class="col-md-4">
-				<ul class="list-group">
-					<li class="list-group-item" style="text-align:center"><strong>Nom : </strong>{{ressourcesCourante.nom}}
-					</li>
-					<li class="list-group-item"><strong>Activiter : </strong>{{ressourcesCourante.activiter}}
-					</li>
-					<li class="list-group-item"><strong>Adresse : </strong>{{ressourcesCourante.adresse}}
-					</li>
-					<li class="list-group-item"><strong>Lien vers site web : </strong>{{ressourcesCourante.lienSiteWeb}}
-					</li>
-					<li class="list-group-item">
-                            {% for EntrepriseCourant in ressour %} 
-							<a href="{{path('ProStages-Stages',{id:EntrepriseCourant.id})}}"> stage proposer</a>
+			{% for ressourcesCourante in ressour %}
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item" style="text-align:center"><strong>Nom : </strong>{{ressourcesCourante.nom}}
+						</li>
+						<li class="list-group-item"><strong>Activiter : </strong>{{ressourcesCourante.activiter}}
+						</li>
+						<li class="list-group-item"><strong>Adresse : </strong>{{ressourcesCourante.adresse}}
+						</li>
+						<li class="list-group-item"><strong>Lien vers site web : </strong>{{ressourcesCourante.lienSiteWeb}}
+						</li>
+						<li class="list-group-item">
+							<a href="{{path('ProStages-ModifierEntreprise',{id:ressourcesCourante.id})}}">Modifier l'entreprise </a>
+						</li>
+						<li class="list-group-item">
+							{% for EntrepriseCourant in ressour %} 
+							<a href="{{path('ProStages-Stages',{id:EntrepriseCourant.nom})}}"> stage proposer</a>
 							<br> </br>
 							{% endfor %} 
-					
-					</li>
-				</ul>
-			</div>
-{% endfor %}
-
-
+					</ul>
+				</div>
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}
