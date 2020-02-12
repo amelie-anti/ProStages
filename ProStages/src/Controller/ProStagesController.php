@@ -135,7 +135,7 @@ class ProStagesController extends AbstractController
         //recupere et affecte les donner recup au nouveau objet
         $formulaireEntreprise->handleRequest($request);
 
-        if($formulaireEntreprise->isSubmitted()){
+        if($formulaireEntreprise->isSubmitted() && $formulaireEntreprise->isValid()){
             $manager->persist($entreprise);
             $manager->flush();
             return $this->redirectToRoute('ProStages-Accueil');
