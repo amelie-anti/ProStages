@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block titrePage %}
+	Les stages proposer par l'entreprise 
+{% endblock %}
+
+
+{% block contenuPage %}
+	<div class="col-md-12">
+		<div class="row">
+			{% for ressourcesCourante in ressours %}
+				<div class="col-md-4">
+					<ul class="list-group">
+						<li class="list-group-item" style="text-align:center">{{ressourcesCourante.nom}} - {{ressourcesCourante.entreprise.nom}}
+						</li>
+						<li class="list-group-item">
+							<a href="{{path('ProStages-ressourceStages',{id:ressourcesCourante.id})}}">Plus de détails :
+							</a>
+						</li>
+					</ul>
+				</div>
+			{% endfor %}			
+		</div>
+	</div>
+{% endblock %}

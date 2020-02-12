@@ -16,10 +16,7 @@
 						<li class="list-group-item"><strong>Nom long : </strong>{{ressourcesCourant.nomLong}} 
 						</li>
 						<li class="list-group-item">
-							{% for formationCourant in ress %} 
-								<a href="{{path('ProStages-Stages',{id:formationCourant.id})}}">stage proposer</a>
-								<br> </br>
-							{% endfor %}
+							<a href="{{path('ProStages-stagesParFormation',{nomCourt:ressourcesCourant.nomCourt})}}">stage proposer</a>
 						</li>
 					</ul>
 				</div>

@@ -23,10 +23,8 @@
 							<a href="{{path('ProStages-ModifierEntreprise',{id:ressourcesCourante.id})}}">Modifier l'entreprise </a>
 						</li>
 						<li class="list-group-item">
-							{% for EntrepriseCourant in ressour %} 
-							<a href="{{path('ProStages-Stages',{id:EntrepriseCourant.nom})}}"> stage proposer</a>
-							<br> </br>
-							{% endfor %} 
+							<a href="{{path('ProStages-stagesParEntreprise',{nom:ressourcesCourante.nom})}}"> stage proposer</a>
+						</li>
 					</ul>
 				</div>
 			{% endfor %}

@@ -25,45 +25,45 @@ class ProStagesController extends AbstractController
     }
 
     /**
-     * @Route("/entreprises/{id}", name="ProStages-Entreprises")
+     * @Route("/entreprises", name="ProStages-Entreprises")
      */
-    public function entreprises($id)
+    public function entreprises()
     {
         //recuperer le repository de l'entité stage 
         $repositoryRessources = $this->getDoctrine()->getRepository(Entreprise::class);
 
         //récuperer les stages enregister en bd 
-        $ressour = $repositoryRessources->findAll($id);
+        $ressour = $repositoryRessources->findAll();
 
         //envoyer les stages récuperer à la vue charger de las afficher 
         return $this->render('ProStages/entreprises.html.twig', ['ressour'=>$ressour]);
     }
 
     /**
-     * @Route("/formations/{id}", name="ProStages-Formations")
+     * @Route("/formations", name="ProStages-Formations")
      */
-    public function formations($id)
+    public function formations()
     {
         //recuperer le repository de l'entité stage 
         $repositoryRessources = $this->getDoctrine()->getRepository(Formation::class);
 
         //récuperer les stages enregister en bd 
-        $ress= $repositoryRessources->findAll($id);
+        $ress= $repositoryRessources->findAll();
 
         //envoyer les stages récuperer à la vue charger de las afficher 
         return $this->render('ProStages/formations.html.twig', ['ress'=>$ress]);
     }
 
     /**
-     * @Route("/stages/{id}", name="ProStages-Stages")
+     * @Route("/stages", name="ProStages-Stages")
      */
-    public function stages($id)
+    public function stages()
     {
         //recuperer le repository de l'entité stage 
         $repositoryRessources = $this->getDoctrine()->getRepository(Stage::class);
 
         //récuperer les stages enregister en bd 
-        $ressources = $repositoryRessources->findAll($id);
+        $ressources = $repositoryRessources->recupFormationEtEntrerpise();
 
         //envoyer les stages récuperer à la vue charger de las afficher 
         return $this->render('ProStages/stages.html.twig',['ressources'=>$ressources]);
@@ -93,10 +93,10 @@ class ProStagesController extends AbstractController
         $repositoryRessources = $this->getDoctrine()->getRepository(Stage::class);
 
         //récuperer les stages enregister en bd 
-        $ressour = $repositoryRessources->findStageByEntrepriseQB($nom);
+        $ressours = $repositoryRessources->findStageByEntrepriseQB($nom);
 
         //envoyer les stages récuperer à la vue charger de las afficher 
-        return $this->render('ProStages/entreprises.html.twig',['ressour'=>$ressour]);
+        return $this->render('ProStages/stagesParEntreprise.html.twig',['ressours'=>$ressours]);
     }
 
     /**
@@ -111,7 +111,7 @@ class ProStagesController extends AbstractController
         $ressour = $repositoryRessources->findStageByFormationDQL($nomCourt);
 
         //envoyer les stages récuperer à la vue charger de las afficher 
-        return $this->render('ProStages/formation.html.twig',['ressour'=>$ressour]);
+        return $this->render('ProStages/stagesParFormation.html.twig',['ressour'=>$ressour]);
     }
 
     /**
@@ -145,10 +145,13 @@ class ProStagesController extends AbstractController
     }
 
     /**
-     * @Route("/modifierEntreprise/{$id}", name="ProStages-ModifierEntreprise")
+     * @Route("/modifierEntreprise/{id}", name="ProStages-ModifierEntreprise")
      */
-    public function modifierEntreprise(Request $request, ObjectManager $manager, Entreprise $entreprise)
+    public function modifierEntreprise(Request $request, ObjectManager $manager, $id)
     {
+        $repositoryRessources = $this->getDoctrine()->getRepository(Entreprise::class);
+        $entreprise = $repositoryRessources->find($id);
+        
         //affiche la page d'ajout d'entreprise
         $formulaireEntreprise = $this->createFormBuilder($entreprise)
         ->add('nom')
