@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use App\Form\EntrepriseType;
+use App\Form\StageType;
 
 use App\Entity\Stage;
 use App\Entity\Entreprise;
@@ -124,13 +126,8 @@ class ProStagesController extends AbstractController
         $entreprise = new Entreprise();
 
         //affiche la page d'ajout d'entreprise
-        $formulaireEntreprise = $this->createFormBuilder($entreprise)
-        ->add('nom')
-        ->add('activiter', TextareaType::class)
-        ->add('adresse')
-        ->add('lienSiteWeb', UrlType::class)
-        ->getForm();
-       
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
+    
         //on demande d'analyser la derniere requete http, 
         //recupere et affecte les donner recup au nouveau objet
         $formulaireEntreprise->handleRequest($request);
@@ -153,13 +150,8 @@ class ProStagesController extends AbstractController
         $entreprise = $repositoryRessources->find($id);
         
         //affiche la page d'ajout d'entreprise
-        $formulaireEntreprise = $this->createFormBuilder($entreprise)
-        ->add('nom')
-        ->add('activiter')
-        ->add('adresse')
-        ->add('lienSiteWeb')
-        ->getForm();
-       
+        $formulaireEntreprise = $this->createForm(EntrepriseType::class, $entreprise);
+
         //on demande d'analyser la derniere requete http, 
         //recupere et affecte les donner recup au nouveau objet
         $formulaireEntreprise->handleRequest($request);
@@ -171,6 +163,34 @@ class ProStagesController extends AbstractController
         }
         //envoyer les formulaires récuperer à la vue charger de las afficher 
         return $this->render('ProStages/ajoutModifEntreprise.html.twig', ['vueFormulaire' =>  $formulaireEntreprise->createView(),'action'=>"modifier" ] );
+    }
+
+     /**
+     * @Route("/ajoutStage", name="ProStages-AjoutStage")
+     */
+    public function ajoutStage(Request $request, ObjectManager $manager)
+    {
+        //creation d'une ressource vierge qui sera remplie par le formulaire
+        $stage = new Stage();
+
+        //affiche la page d'ajout du stage
+        $formulaireStage = $this->createForm(StageType::class, $stage);
+    
+        //on demande d'analyser la derniere requete http, 
+        //recupere et affecte les donner recup au nouveau objet
+        $formulaireStage->handleRequest($request);
+
+        //on demande d'analyser la derniere requete http, 
+        //recupere et affecte les donner recup au nouveau objet
+        $formulaireStage->handleRequest($request);
+
+        if($formulaireStage->isSubmitted() && $formulaireEntreprise->isValid()){
+            $manager->persist($stage);
+            $manager->flush();
+            return $this->redirectToRoute('ProStages-Accueil');
+        }
+        //envoyer les formulaires récuperer à la vue charger de las afficher 
+        return $this->render('ProStages/ajouterStage.html.twig', ['vueFormulaireStage' =>  $formulaireStage->createView()] );
     }
 }
 
