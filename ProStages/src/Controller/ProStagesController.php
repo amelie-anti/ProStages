@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response; 
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
-use Symfony\Component\HttpFoundation\Request; 
+use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use App\Entity\Stage;
@@ -155,9 +155,9 @@ class ProStagesController extends AbstractController
         //affiche la page d'ajout d'entreprise
         $formulaireEntreprise = $this->createFormBuilder($entreprise)
         ->add('nom')
-        ->add('activiter', TextareaType::class)
+        ->add('activiter')
         ->add('adresse')
-        ->add('lienSiteWeb', UrlType::class)
+        ->add('lienSiteWeb')
         ->getForm();
        
         //on demande d'analyser la derniere requete http, 

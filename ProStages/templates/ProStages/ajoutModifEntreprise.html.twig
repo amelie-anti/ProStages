@@ -14,7 +14,7 @@
 {% block contenuPage %}
     
     Saisissez les caractéristiques de l'entreprise 
-    {{ form_start(vueFormulaire)}}
+    {{ form_start(vueFormulaire, {'attr': {'novalidate': 'novalidate'}}) }}
     {{ form_row(vueFormulaire.nom,{'attr':{'placeholder':'Nom de entreprise'} } )}}
     {{ form_row(vueFormulaire.activiter,{'attr':{'placeholder':'Activiter de entreprise'} } )}}
     {{ form_row(vueFormulaire.adresse,{'attr':{'placeholder':'Adresse de entreprise'} } )}}
