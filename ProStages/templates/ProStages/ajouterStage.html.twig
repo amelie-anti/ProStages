@@ -9,12 +9,15 @@
 {% block contenuPage %}
     
     Saisissez les caractéristiques du stage 
-    {{ form_start(vueFormulaireStage, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_start(vueFormulaireStage) }}
     {{ form_row(vueFormulaireStage.titre,{'attr':{'placeholder':'Titre du stage'} } )}}
+    {{ form_row(vueFormulaireStage.nom,{'attr':{'placeholder':'Nom du stage'} } )}}
     {{ form_row(vueFormulaireStage.activiter,{'attr':{'placeholder':'Activiter du stage'} } )}}
     {{ form_row(vueFormulaireStage.adresse,{'attr':{'placeholder':'Adresse du stage'} } )}}
     {{ form_row(vueFormulaireStage.description,{'attr':{'placeholder':'Description du stage'} } )}}
     {{ form_row(vueFormulaireStage.email,{'attr':{'placeholder':'Email de contact'} } )}}
+    {{ form_row(vueFormulaireStage.entreprise )}}
+    {{ form_row(vueFormulaireStage.formations,{'label': " Formation(s) demandée(s)"} )}}
 
     <button type="submit" class="btn btn-dark" > Enregistrer </button>
 

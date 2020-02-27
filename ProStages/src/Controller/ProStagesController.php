@@ -180,17 +180,13 @@ class ProStagesController extends AbstractController
         //recupere et affecte les donner recup au nouveau objet
         $formulaireStage->handleRequest($request);
 
-        //on demande d'analyser la derniere requete http, 
-        //recupere et affecte les donner recup au nouveau objet
-        $formulaireStage->handleRequest($request);
-
-        if($formulaireStage->isSubmitted() && $formulaireEntreprise->isValid()){
+        if($formulaireStage->isSubmitted() && $formulaireStage->isValid()){
             $manager->persist($stage);
             $manager->flush();
             return $this->redirectToRoute('ProStages-Accueil');
         }
         //envoyer les formulaires récuperer à la vue charger de las afficher 
-        return $this->render('ProStages/ajouterStage.html.twig', ['vueFormulaireStage' =>  $formulaireStage->createView()] );
+        return $this->render('ProStages/ajouterStage.html.twig', ['vueFormulaireStage'=>$formulaireStage->createView()]);
     }
 }
 
