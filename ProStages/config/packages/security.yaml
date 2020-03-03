@@ -1,12 +1,11 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:  
-            memory: 
-                users:
-                    amelie: {password: $2y$10$I/UMy4NtpvVl32Vbaxa/guqAhNmqx65IojEIo9CV9mJe/5MfVRr9K, roles: ROLE_ADMIN}
-                    theo: {password: $2y$10$AgTT4x1JC9sGphbUjeEq/u4AQDliWmJgL8TyHINDIhjYoxjwm/AzW, roles: ROLE_USER}
-                 
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -29,6 +28,7 @@ security:
 
     encoders: 
         Symfony\Component\Security\Core\User\User: 
-            
             algorithm: bcrypt
             cost: 15
+        App\Entity\User:
+             algorithm: bcrypt

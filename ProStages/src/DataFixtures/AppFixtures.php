@@ -7,6 +7,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Formation;
 use App\Entity\Entreprise;
 use App\Entity\Stage;
+use App\Entity\User;
 
 class AppFixtures extends Fixture
 {
@@ -14,6 +15,24 @@ class AppFixtures extends Fixture
     {
         //création d'un générateur de données faker
         $faker = \Faker\Factory::create('fr_FR');
+
+
+        //création des utilisateurs : 
+        $amelie = new User();
+        $amelie->setPrenom("Amélie");
+        $amelie->setNom("Antigny");
+        $amelie->setEmail("amelie@free.fr");
+        $amelie->setRoles(['ROLE_USER', 'ROLE_ADMIN']);
+        $amelie->setPassword('$2y$10$j8gSNQlvJnV.7x/MqmMQU.lzo4vieFe8arHG0NBbg1QJAfroGd0L6');
+        $manager->persist($amelie);
+
+        $theo = new User();
+        $theo->setPrenom("Théo");
+        $theo->setNom("Malboef");
+        $theo->setEmail("theo@free.fr");
+        $theo->setRoles(['ROLE_USER']);
+        $theo->setPassword('$2y$10$4uXyGPZTUndnm5TzHKKW4e77eDX1SQc/6kojMOJWgvfcYesPkwb7G');
+        $manager->persist($theo);
 
         //création des 3 formations : 
         //DUT 
