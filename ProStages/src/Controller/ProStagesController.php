@@ -117,7 +117,7 @@ class ProStagesController extends AbstractController
     }
 
     /**
-     * @Route("/ajoutEntreprise", name="ProStages-AjoutEntreprise")
+     * @Route("/admin/ajoutEntreprise", name="ProStages-AjoutEntreprise")
      */
     public function ajoutEntreprise(Request $request, ObjectManager $manager)
     {
@@ -166,7 +166,7 @@ class ProStagesController extends AbstractController
     }
 
      /**
-     * @Route("/ajoutStage", name="ProStages-AjoutStage")
+     * @Route("/profile/ajoutStage", name="ProStages-AjoutStage")
      */
     public function ajoutStage(Request $request, ObjectManager $manager)
     {

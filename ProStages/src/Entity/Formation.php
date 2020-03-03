@@ -24,7 +24,7 @@ class Formation
     private $nomCourt;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=250)
      */
     private $nomLong;
 
