@@ -52,12 +52,30 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{path('ProStages-Formations')}}">Liste des formations</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{path('ProStages-AjoutEntreprise')}}">Ajouter une entreprise</a>
-                                    </li>
-                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{path('ProStages-AjoutStage')}}">Ajouter un stage</a>
-                                    </li>
+                                    {%if is_granted('ROLE_ADMIN') %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{path('ProStages-AjoutEntreprise')}}">Ajouter une entreprise</a>
+                                        </li>
+                                    {% endif %}
+                                    {%if is_granted('ROLE_USER') %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{path('ProStages-AjoutStage')}}">Ajouter un stage</a>
+                                        </li>
+                                    {% endif %}
+                                    {%if is_granted('ROLE_USER') %}
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="{{path('app_logout')}}">
+                                                {{app.user.nom}} {{app.user.prenom}}
+                                                <br>
+                                                Déconnexion 
+                                            </a>
+                                            
+                                        </li>
+                                    {%else%}
+                                        <li class="nav-item active">
+                                                <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+                                        </li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </nav>
