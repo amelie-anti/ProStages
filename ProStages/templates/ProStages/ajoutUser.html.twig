@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block titrePage %}
+	Inscrit toi pour plus de fonctionnalitées
+{% endblock %}
+
+{% block contenuPage %}
+    {{ form_start(vueFormulaireUser, {'attr': {'novalidate': 'novalidate'}} ) }}
+    {{ form_row(vueFormulaireUser.nom,{'attr':{'placeholder':'Nom'} } )}}
+    {{ form_row(vueFormulaireUser.prenom,{'attr':{'placeholder':'Prenom'} } )}}
+    {{ form_row(vueFormulaireUser.email,{'attr':{'placeholder':'Email de contact'} } )}}
+    {{ form_row(vueFormulaireUser.password,{'attr':{'placeholder':'Mot de passe'} } )}}
+
+    <button type="submit" class="btn btn-dark" > Enregistrer </button>
+
+    {{ form_end(vueFormulaireUser)}}
+{% endblock %}
