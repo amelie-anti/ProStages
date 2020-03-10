@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block titrePage %}Détail de la formation{% endblock %}
+
+{% block contenuPage %}
+    
+    <ul class="list-group">
+        <li class="list-group-item"><strong> Identifiant de la formation: </strong>{{ formation.id }}</li>
+        <li class="list-group-item"><strong>NomCourt: </strong>{{ formation.nomCourt }}</li>
+        <li class="list-group-item"><strong>NomLong: </strong>{{ formation.nomLong }}</li>
+        <a href="{{ path('formation_index') }}">Retour à la liste des formationts</a>
+        <br>
+        <a href="{{ path('formation_edit', {'id': formation.id}) }}">Modification de la formation</a>
+    
+        {{ include('formation/_delete_form.html.twig') }}
+
+        </li>
+    </ul> 
+
+
+<!-- <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ formation.id }}</td>
+            </tr>
+            <tr>
+                <th>NomCourt</th>
+                <td>{{ formation.nomCourt }}</td>
+            </tr>
+            <tr>
+                <th>NomLong</th>
+                <td>{{ formation.nomLong }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('formation_index') }}">Retour à la liste des formationts</a>
+    <br>
+    <a href="{{ path('formation_edit', {'id': formation.id}) }}">Modification de la formation</a>
+
+    {{ include('formation/_delete_form.html.twig') }} -->
+
+    {% endblock %}

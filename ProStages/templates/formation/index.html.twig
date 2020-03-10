@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block titrePage %}Trouve un stage en fonction de la formation choisie{% endblock %}
+
+{% block contenuPage %}
+    <div class="col-md-12">
+        <div class="row">
+            {% for formation in formations %}
+                <div class="col-md-4">
+                    <ul class="list-group">
+                        <li class="list-group-item" style="text-align:center"> <strong> Nom Court : </strong>{{ formation.nomCourt }} 
+                        </li>
+                        <li class="list-group-item"><strong>Nom long : </strong>{{ formation.nomLong }}
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{path('ProStages-stagesParFormation',{nomCourt:formation.nomCourt})}}">stage proposer</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ path('formation_show', {'id': formation.id}) }}">Détail de la formation</a>   
+                        </li>
+                        {%if is_granted('ROLE_ADMIN') %}
+                        <li class="list-group-item">
+                            <a href="{{ path('formation_edit', {'id': formation.id}) }}">Modifier la formation</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {% else %}
+                    <td colspan="4">Aucune formations présente</td>
+            {% endfor %}
+        </div>
+    </div>
+    {%if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('formation_new') }}">Ajouter une formation</a>
+    {% endif %}
+    <!-- <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomCourt</th>
+                <th>NomLong</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formation in formations %}
+            <tr>
+                <td>{{ formation.id }}</td>
+                <td>{{ formation.nomCourt }}</td>
+                <td>{{ formation.nomLong }}</td>
+                <td>
+                    <a href="{{ path('formation_show', {'id': formation.id}) }}">Détail de la formation</a>
+                    <br>
+                    <a href="{{ path('formation_edit', {'id': formation.id}) }}">Modifier la formation</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucune formations présente</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('formation_new') }}">Ajouter une formation</a> -->
+    
+{% endblock %}

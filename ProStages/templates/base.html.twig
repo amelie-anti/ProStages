@@ -50,12 +50,15 @@
                                         <a class="nav-link" href="{{path('ProStages-Entreprises')}}">Liste des entreprises</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{path('ProStages-Formations')}}">Liste des formations</a>
+                                        <a class="nav-link" href="{{path('formation_index')}}">Liste des formations</a>
                                     </li>
                                     {%if is_granted('ROLE_ADMIN') %}
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{path('ProStages-AjoutEntreprise')}}">Ajouter une entreprise</a>
                                         </li>
+                                        <li class="nav-item">
+                                                <a class="nav-link" href="{{path('formation_new')}}">Ajouter une formation</a>
+                                            </li>
                                     {% endif %}
                                     {%if is_granted('ROLE_USER') %}
                                         <li class="nav-item">
