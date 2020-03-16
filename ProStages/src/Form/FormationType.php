@@ -14,8 +14,7 @@ class FormationType extends AbstractType
         $builder
             ->add('nomCourt')
             ->add('nomLong')
-            ->add('stages')
-        ;
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
