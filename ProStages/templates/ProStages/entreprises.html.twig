@@ -9,11 +9,11 @@
 	<div class="col-md-12">
 		<div class="row">
 			{% for ressourcesCourante in ressour %}
-				<div class="col-md-4">
+				<div class="col-md-4" style="padding: 10px">
 					<ul class="list-group">
 						<li class="list-group-item" style="text-align:center"><strong>Nom : </strong>{{ressourcesCourante.nom}}
 						</li>
-						<li class="list-group-item"><strong>Activiter : </strong>{{ressourcesCourante.activiter}}
+						<li class="list-group-item"><strong>Activité : </strong>{{ressourcesCourante.activiter}}
 						</li>
 						<li class="list-group-item"><strong>Adresse : </strong>{{ressourcesCourante.adresse}}
 						</li>
@@ -23,7 +23,7 @@
 							<a href="{{path('ProStages-ModifierEntreprise',{id:ressourcesCourante.id})}}">Modifier l'entreprise </a>
 						</li>
 						<li class="list-group-item">
-							<a href="{{path('ProStages-stagesParEntreprise',{nom:ressourcesCourante.nom})}}"> stage proposer</a>
+							<a href="{{path('ProStages-stagesParEntreprise',{nom:ressourcesCourante.nom})}}">Stages proposés</a>
 						</li>
 					</ul>
 				</div>

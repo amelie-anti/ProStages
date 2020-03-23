@@ -1,7 +1,18 @@
 easy_admin:
-   entities:
-       
-       - App\Entity\Stage
-       - App\Entity\Entreprise
-       - App\Entity\Formation
-       - App\Entity\User
+  site_name: '<em style="font-size: 100%;">ProStages</em>'
+
+  entities:
+    - App\Entity\Stage
+    - App\Entity\Entreprise
+    - App\Entity\Formation
+    - App\Entity\User
+
+  design:
+    brand_color: 'red'
+    menu: 
+      [{ entity: 'Stage', label: 'Les stages' },
+       { entity: 'Entreprise', label: 'Les entreprises' },
+       { entity: 'Formation', label: 'Les formations' },
+       { entity: 'User', label: 'Les utilisateurs' } ]
+
+  

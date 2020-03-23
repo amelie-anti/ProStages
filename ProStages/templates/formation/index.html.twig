@@ -6,14 +6,11 @@
     <div class="col-md-12">
         <div class="row">
             {% for formation in formations %}
-                <div class="col-md-4">
+                <div class="col-md-4" style="padding: 10px">
                     <ul class="list-group">
                         <li class="list-group-item" style="text-align:center"> <strong> Nom Court : </strong>{{ formation.nomCourt }} 
                         </li>
                         <li class="list-group-item"><strong>Nom long : </strong>{{ formation.nomLong }}
-                        </li>
-                        <li class="list-group-item">
-                            <a href="{{path('ProStages-stagesParFormation',{nomCourt:formation.nomCourt})}}">stage proposer</a>
                         </li>
                         <li class="list-group-item">
                             <a href="{{ path('formation_show', {'id': formation.id}) }}">Détail de la formation</a>   
@@ -21,6 +18,9 @@
                         {%if is_granted('ROLE_ADMIN') %}
                         <li class="list-group-item">
                             <a href="{{ path('formation_edit', {'id': formation.id}) }}">Modifier la formation</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{path('ProStages-stagesParFormation',{nomCourt:formation.nomCourt})}}">Stages proposés</a>
                         </li>
                         {% endif %}
                     </ul>

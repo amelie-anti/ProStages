@@ -7,7 +7,7 @@
         <!-- LE BLOC POUR LE TITRE -->
         <title>
             {% block title %}
-                ProStages <3 <3 <3 
+                ProStages
             {% endblock %}
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -52,29 +52,33 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="{{path('formation_index')}}">Liste des formations</a>
                                     </li>
-                                    {%if is_granted('ROLE_ADMIN') %}
+                                    {% if is_granted('ROLE_ADMIN') %}
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{path('ProStages-AjoutEntreprise')}}">Ajouter une entreprise</a>
                                         </li>
                                         <li class="nav-item">
                                                 <a class="nav-link" href="{{path('formation_new')}}">Ajouter une formation</a>
-                                            </li>
+                                        </li>
                                     {% endif %}
-                                    {%if is_granted('ROLE_USER') %}
+                                    {% if is_granted('ROLE_USER') %}
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{path('ProStages-AjoutStage')}}">Ajouter un stage</a>
                                         </li>
                                     {% endif %}
-                                    {%if is_granted('ROLE_USER') %}
+                                    {% if is_granted('ROLE_USER') %}
                                         <li class="nav-item active">
                                             <a class="nav-link" href="{{path('app_logout')}}">
                                                 {{app.user.nom}} {{app.user.prenom}}
                                                 <br>
                                                 Déconnexion 
                                             </a>
-                                            
                                         </li>
-                                    {%else%}
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <li class="nav-item active">
+                                                <a class="nav-link" href="/admin">Administration</a>
+                                            </li>
+                                        {% endif %}
+                                    {% else %}
                                         <li class="nav-item active">
                                                 <a class="nav-link" href="{{path('app_login')}}">Connexion</a>
                                         </li>
@@ -115,7 +119,7 @@
             {% block footer %}
                 <div class="row">
                     <div class="col-md-12">
-                        <p> Antigny Amélie TD1 - TP2 </p>
+                        <p> Antigny Amélie TD3 - TP5 </p>
                     </div>
                 </div>
             {% endblock %}

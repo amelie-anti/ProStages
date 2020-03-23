@@ -10,13 +10,13 @@
 		<div class="row">
 			{% for ressourcesCourant in ress %}
 				<div class="col-md-4">
-					<ul class="list-group">
+					<ul class="list-group" style="padding: 10px">
 						<li class="list-group-item" style="text-align:center"> <strong> Nom Court : </strong>{{ressourcesCourant.nomCourt}} 
 						</li>
 						<li class="list-group-item"><strong>Nom long : </strong>{{ressourcesCourant.nomLong}} 
 						</li>
 						<li class="list-group-item">
-							<a href="{{path('ProStages-stagesParFormation',{nomCourt:ressourcesCourant.nomCourt})}}">stage proposer</a>
+							<a href="{{path('ProStages-stagesParFormation',{nomCourt:ressourcesCourant.nomCourt})}}">Stages proposés</a>
 						</li>
 					</ul>
 				</div>
